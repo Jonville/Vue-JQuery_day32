@@ -1,0 +1,110 @@
+<html>
+<head>
+    <link rel="stylesheet" href="index.css">
+    <script src="js/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        table, td, th{
+            border : 1px solid #ccc;
+            font-size: 20px;
+            text-align: center;
+            border-collapse: collapse;
+            padding : 5px 20px;
+        }
+        .font_color1 {
+            color : red;
+        }
+        .font_color2 {
+            color : blue;
+        }
+        .font_color3 {
+            color : green;
+        }
+        .font_color4 {
+            color : purple;
+        }
+    </style>
+</head>
+<body>      
+    <div id="app">
+        <div class="table-list">
+            <table>                   
+                <thead>
+                    <tr>            
+                        <th scope="col"></th>                
+                        <th scope="col">No.</th>
+                        <th scope="col">학번</th>
+                        <th scope="col">이름</th>
+                        <th scope="col">학과</th>
+                        <th scope="col">평균점수</th>
+                        <th scope="col">학점</th>               
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(item, index) in list"                    
+                         v-bind:class="{'font_color1' : item.grade == 'A'
+                            , 'font_color2' : item.grade == 'B'
+                            , 'font_color3' : item.grade == 'C'
+                            , 'font_color4' : item.grade == 'D'}" >
+                        <td><input type="checkbox" v-bind:value = "item.stu_no" v-model="checkList"></td>                 
+                        <td>{{index + 1}}</td> 
+                        <td>{{item.stu_no}}</td>
+                        <td>{{item.stu_name}}</td>
+                        <td>{{item.stu_dept}}</td>     
+                        <td>{{item.avg}}</td>     
+                        <td>{{item.grade}}</td>     
+                    </tr>                                                                  
+                </tbody>
+            </table>
+        
+        </div>
+    </div>      
+</body>
+</html>
+<script>
+
+    // $(function() {
+    //     $("td").each(function() {
+    //         $(this.grade).css("color" , "red")
+    //     })
+    // })
+
+    var app = new Vue({ 
+    el: '#app',
+    data: {
+        list : [],
+        checkList : []
+    }, methods: {
+        fnTest : function(){
+            var self = this;
+            $.ajax({
+                url:"js/ENR.json",
+                dataType:"json",
+                success:function(data) {             
+                
+                        $(data).each(function(){
+                            if($(this)[0].stu_dept == '기계'){
+                                $(this)[0].grade = 'A';
+                            }
+                            if($(this)[0].stu_dept == '전기전자'){
+                                $(this)[0].grade = 'B';
+                            }
+                            if($(this)[0].stu_dept == '컴퓨터정보'){
+                                $(this)[0].grade = 'C';
+                            }
+                            console.log($(this)[0]);
+                            
+                        })
+                    self.list = data;    
+
+                    
+            }
+            });  
+        }
+    }
+    , created: function () {
+        this.fnTest();
+	}
+});
+</script>
+​

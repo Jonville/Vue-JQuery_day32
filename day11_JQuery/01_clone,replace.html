@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="js/jquery-3.6.4.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul id="list">
+        <li>자바스크립트</li>
+        <li id="c">C언어</li>
+        <li>HTML/CSS/JAVASCRIPT</li>
+    </ul>
+
+    <button id="btn">클릭!</button>
+    
+</body>
+</html>
+
+<script>
+    $(function() {
+        // 복사 clone
+        $("#btn").on("click" , function() {
+            $("#c").clone().appendTo("#list");  // appendTo 는 자식노드에 추가하는것
+        })
+        // 대체 replace
+        $("#btn").on("click" , function() {
+            $("#c").replaceAll("li");   // id c 인 친구가 li 태그에 다 대체된다.
+        })
+    })
+</script>

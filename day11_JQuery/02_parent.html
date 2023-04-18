@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="js/jquery-3.6.4.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        li {
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+    </style>
+
+</head>
+<body>
+    <div>
+        <ul id="list">
+            <li>자바스크립트</li>
+            <li id="c">
+            <span id="sp">C언어</span>
+            </li>
+            <li>HTML/CSS/JAVASCRIPT</li>
+        </ul>
+    </div>
+
+    <button id="btn">클릭!</button>
+    
+</body>
+</html>
+
+<script>
+    $(function() {
+        $("#btn").on("click" , function() {
+            $("#sp").parentsUntil("div").css("border", "solid 2px red");    
+                // 조상요소들중에서 div 전까지만 적용
+        })
+       
+    })
+</script>

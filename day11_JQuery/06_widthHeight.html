@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="js/jquery-3.6.4.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width : 300px;
+            height : 200px;
+            border : 3px solid red;
+            padding : 10px;
+            margin : 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div id="text1"></div>
+    </div>
+</body>
+</html>
+<script>
+    $(function() {
+        $("#text1").html(
+                  "width : " + $(".box").width() + "px <br>"	
+                + "height : " + $(".box").height() + "px <br>"
+                + "innerHeight : " + $(".box").innerHeight() + "px <br>"
+                + "innerWidth : " + $(".box").innerWidth() + "px <br>"
+                + "outerHeight : " + $(".box").outerHeight() + "px <br>"
+                + "outerWidth : " + $(".box").outerWidth() + "px <br>"
+                + "outerHeight(true) : " + $(".box").outerHeight(true) + "px <br>"
+                + "outerWidth(true) : " + $(".box").outerWidth(true) + "px <br>"
+                );
+    });
+</script>

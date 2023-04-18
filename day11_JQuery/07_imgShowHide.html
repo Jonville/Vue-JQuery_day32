@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="js/jquery-3.6.4.min.js"></script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #box {
+            width: 500px;
+            height: 400px;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="box"><img src="images/rc.jpg" alt="" id="img1" width="500px" height="400px"></div>
+    <div>
+        <button id="btn1">숨기기</button>
+        <button id="btn2">보이기</button>
+        <button id="btn3">보이기/숨기기</button>
+        <button id="btn4">페이드인</button>
+        <button id="btn5">페이드아웃</button>
+        <button id="btn6">페이드인/페이드아웃</button>
+        <button id="btn7">페이드(투명도)</button>
+        <button id="btn8">페이드(투명도)</button>
+        <button id="btn9">딜레이</button>
+        <button id="btn10">슬라이드 다운</button>
+        <button id="btn11">슬라이드 업</button>
+        <button id="btn12">슬라이드 업/슬라이드 다운</button>
+        <button id="btn13">정지</button>
+        <button id="btn14">중지</button>
+    </div>
+</body>
+</html>
+
+<script>
+
+    $(function() {
+        $("#btn1").on("click" , function() {
+            $("#img1").hide(2000);  // 2000 ms = 2초
+        })
+
+        $("#btn2").on("click" , function() {
+            $("#img1").show("fast");    // slow , fast 
+        })
+
+        $("#btn3").on("click" , function() {
+            $("#img1").toggle("slow");  // show, hide 둘다 작동
+        })
+
+        $("#btn4").on("click" , function() {
+            $("#img1").fadeIn(2000);  
+        })
+
+        $("#btn5").on("click" , function() {
+            $("#img1").fadeOut("fast");    
+        })
+
+        $("#btn6").on("click" , function() {
+            $("#img1").fadeToggle("slow");  
+        })
+
+        $("#btn7").on("click" , function() {
+            $("#img1").fadeTo(2000 , 0.1); // 2초에 걸쳐 0.1 정도 불투명도를 줌
+        })
+
+        $("#btn8").on("click" , function() {
+            $("#img1").fadeTo(2000 , 0.5); // 2초에 걸쳐 0.5 정도 불투명도를 줌
+        })
+
+        $("#btn9").on("click" , function() {
+            $("#img1").fadeOut(1000).delay(1000).fadeIn(1000); 
+                // 페이드아웃 ~했다가 1초 기다리고 ~ 페이드인 하겠다
+        })
+
+        $("#btn10").on("click" , function() {
+            $("#img1").slideDown();
+        })
+
+        $("#btn11").on("click" , function() {
+            $("#img1").slideUp()
+        })
+
+        $("#btn12").on("click" , function() {
+            $("#img1").slideToggle(1000)
+        })
+
+        $("#btn13").on("click" , function() {
+            $("#img1").stop()
+        })
+
+        $("#btn14").on("click" , function() {
+            $("#img1").finish()
+        })
+
+        
+    })
+
+</script>

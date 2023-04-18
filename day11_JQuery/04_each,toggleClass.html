@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="js/jquery-3.6.4.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        li {
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+        .test {
+            border:  2px solid red;
+        }
+    </style>
+
+</head>
+<body>
+    <div>
+        <ul id="list">
+            <li>자바스크립트</li>
+            <li id="c">
+            <span id="sp">C언어</span>
+            </li>
+            <li>HTML/CSS/JAVASCRIPT</li>
+        </ul>
+    </div>
+
+    <button id="btn">클릭!</button>
+    
+</body>
+</html>
+
+<script>
+    $(function() {
+        $("#btn").on("click" , function() {
+            $("li").each(function(){ // 순차적으로 li 에 접근해서 ~~를 실행하겠다
+                $(this).toggleClass("test");
+                // this 는 순차적으로 돌면서 li 에 접근할수있음
+                // toggleClass 로 온/오프 해줄수있다.
+            })    
+        })
+       
+    })
+</script>
